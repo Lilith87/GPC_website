@@ -957,6 +957,17 @@ a {
   margin-top: 8px;
 }
 
+/**PROGRAMS PAGE**/
+/**hero**/
+#programs-hero-content {
+  height: 600px;
+  background: linear-gradient(to right, rgba(31, 25, 115, .8), rgba(0, 0, 0, .3), rgba(31, 25, 115, .6)),
+    url(../img/program-hero.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 /** Footer **/
 footer {
   color: #fff;
