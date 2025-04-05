@@ -29,7 +29,8 @@
 .footer-up-content,
 .square-container,
 #info-container,
-#commitees-content {
+#commitees-content,
+.contact-container {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -829,6 +830,131 @@ button.team-prev {
 
 button.team-next {
   right: 60px;
+}
+
+/**CONTACT PAGE**/
+/**Hero**/
+#contact-hero-content {
+  height: 735px;
+  background: linear-gradient(to right, rgba(31, 25, 115, .8), rgba(0, 0, 0, .3), rgba(31, 25, 115, .6)),
+    url(../img/contact-hero.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#contact-hero-content .hero-caption {
+  padding: 300px 0;
+  text-align: center;
+  line-height: 80px;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.get-in-touch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding: 35px 10px 35px 35px;
+  background: #3d1973;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.get-in-touch h3 {
+  margin: 20px 0;
+}
+
+.social-contact {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+
+.social-contact-container {
+  display: flex;
+}
+
+.social-contact-container p {
+  color: #fff;
+  padding: 18px 0 0 5px;
+}
+
+.social-contact-img {
+  background-color: #a77bcd;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-contact-img img {
+  width: 25px;
+  height: 25px;
+}
+
+#contact-form {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  height: 50px;
+  padding: 5px;
+}
+
+#contact-form textarea {
+  height: 100px;
+}
+
+.item1,
+.item6,
+.item7 {
+  grid-column: span 2;
+}
+
+#submit-button {
+  background: #f7d734;
+  color: #3d1973;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 8px 25px;
+}
+
+.contact-form-square {
+  background: #3d1973;
+  padding: 50px 20px;
+  margin-top: 50px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.contact-form-square h3 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+.contact-form-square h4 {
+  color: #c4c0d5;
+  margin-top: 8px;
 }
 
 /** Footer **/
