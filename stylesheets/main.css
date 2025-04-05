@@ -26,7 +26,10 @@
 .about-container,
 .impact-container,
 .service-content,
-.footer-up-content {
+.footer-up-content,
+.square-container,
+#info-container,
+#commitees-content {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -323,7 +326,7 @@ button.next {
   top: 48.5%;
   transform: translateY(-50%);
   background: #4b0082;
-  color: white;
+  color: #fff;
   border: #fff 4px solid;
   padding: 0 8px;
   cursor: pointer;
@@ -479,7 +482,7 @@ button.next {
 }
 
 #about-hero-content .hero-caption {
-  padding: 250px 200px 0 80px;
+  padding: 250px 200px 0 0;
 }
 
 /**INFO**/
@@ -639,20 +642,53 @@ button.next {
 
 .about-square {
   width: 600px;
-  height: 280px;
+  height: 510px;
   margin-bottom: 80px;
   border-radius: 10px;
-  display: flex;
   z-index: 2;
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+}
+
+.arrow1 {
+  right: 90px;
+}
+
+.arrow2 {
+  left: 90px;
+}
+
+.about-square-card {
+  display: flex;
+}
+
+.card-right {
+  background: #3d1973;
+}
+
+.card-left {
+  background: #f7d734;
+  ;
 }
 
 .about-square h2 {
   font-size: 30px;
 }
 
+.hide-content {
+  display: none;
+}
+
 .about-square:hover {
-  width: 600px;
-  height: 320px;
+  width: 800px;
+  height: auto;
+}
+
+.about-square:hover .hide-content {
+  display: block;
 }
 
 .about-square-content {
@@ -674,40 +710,42 @@ button.next {
   width: 100%;
   display: flex;
   flex-direction: column;
-  position: relative;
 }
 
 #about-square-container .right {
-  background: #3d1973;
   align-self: flex-end;
 }
 
 #about-square-container .left {
-  background: #f7d734;
   align-self: flex-start;
 }
 
-#about-square-container .left h2 {
+#about-square-container .left h2,
+#about-square-container .left p {
   color: #3d1973;
 }
 
-.arrow {
-  position: absolute;
+#about-square-container .right p {
+  color: #f7d734;
 }
 
-.arrow1 {
-  top: 280px;
-  right: 205px;
+.comm-btn {
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 20px;
+  margin: 10px;
+  font-weight: bold;
 }
 
-.arrow2 {
-  top: 640px;
-  left: 205px;
+.btn-right {
+  background: #f7d734;
+  color: #3d1973;
 }
 
-.arrow3 {
-  top: 1000px;
-  right: 205px;
+.btn-left {
+  color: #f7d734;
+  background: #3d1973;
 }
 
 /**Team**/
@@ -715,7 +753,8 @@ button.next {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 500px;
+  height: 550px;
+  padding-bottom: 100px;
 }
 
 #team-slider .title-image {
@@ -735,6 +774,9 @@ button.next {
 
 #team-slider .team-circle.active {
   align-self: flex-start;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
 }
 
 #team-slider .team-circle.hidden {
@@ -773,10 +815,12 @@ button.team-next {
   top: 48.5%;
   transform: translateY(-50%);
   background: #4b0082;
-  color: white;
-  border: #fff 2px solid;
-  padding: 10px;
+  color: #f7d734;
+  border: #f7d734 4px solid;
+  padding: 0 8px;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 button.team-prev {
