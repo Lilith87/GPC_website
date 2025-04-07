@@ -1,6 +1,9 @@
 /** Website developed by Claudia Cavallaro **/
 
 /* General styles */
+/**font-family: "source-sans-pro", sans-serif;
+   font-family: "Montserrat", sans-serif;**/
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,15 +11,26 @@
   font-family: "Montserrat", sans-serif;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 .title-image {
   display: flex;
+  margin-bottom: 20px;
+}
+
+.title-image h2 {
+  margin: 0;
+  align-self: flex-end;
 }
 
 .logo {
-  width: 30px;
-  height: 45px;
+  width: 25px;
+  height: 44px;
   display: inline-block;
-  padding: 0 5px;
+  margin: 0 10px;
+  align-self: flex-start;
 }
 
 .navbar,
@@ -27,8 +41,8 @@
 .impact-container,
 .service-content,
 .footer-up-content,
-#info-container,
-#commitees-content,
+#info,
+#committees-content,
 .contact-container {
   width: 90%;
   margin-left: auto;
@@ -50,31 +64,38 @@
 
 .layout-bianco-content h2 {
   color: #f7d734;
-  font-size: 35px;
+  font-size: 3rem;
   padding: 0;
-  margin-bottom: 20px;
+  font-family: "source-sans-pro", sans-serif;
 }
 
 .layout-bianco-content p {
   color: #a77cce;
-  font-size: 20px;
+  font-size: 1.7rem;
+  font-weight: 500;
   margin-bottom: 30px;
   line-height: 30px;
 }
 
 .layout-bianco .btn {
-  padding: 10px 20px;
+  display: inline-block;
+  width: 180px;
+  height: 45px;
+  padding: 15px 20px;
   text-decoration: none;
   text-transform: uppercase;
   background: #f7d734;
   color: #fff;
-  border-radius: 20px;
+  font-family: "source-sans-pro", sans-serif;
+  font-size: 1.6rem;
+  text-align: center;
+  border-radius: 26px;
 }
 
 /**Layout blu**/
 .layout-blue {
   padding: 20px 20px 20px 0;
-  background: #3d1973;
+  background: #3E1A74;
 }
 
 .layout-blue-content {
@@ -84,14 +105,15 @@
 
 .layout-blue-content h2 {
   color: #fff;
-  font-size: 35px;
+  font-size: 3rem;
   padding: 0;
-  margin-bottom: 20px;
+  font-family: "source-sans-pro", sans-serif;
 }
 
 .layout-blue-content p {
   color: #fff;
-  font-size: 20px;
+  font-size: 1.7rem;
+  font-weight: 500;
   margin-bottom: 30px;
   line-height: 30px;
 }
@@ -99,7 +121,7 @@
 
 /** Header **/
 .header {
-  background: #3d1973;
+  background: #3E1A74;
   color: white;
   text-align: center;
   padding-top: 10px;
@@ -121,28 +143,8 @@ main {
 }
 
 .navbar img {
-  width: 50px;
+  width: 200px;
   height: auto;
-}
-
-.navbar #logo-header {
-  display: flex;
-}
-
-.navbar .logo-name {
-  display: flex;
-  flex-direction: column;
-  text-transform: uppercase;
-  text-align: left;
-  font-weight: 800;
-  border-left: 4px solid #fff;
-}
-
-.navbar .logo-name p {
-  margin: 0;
-  padding: 0 0 0 5px;
-  font-size: 20px;
-  line-height: 25px;
 }
 
 .navbar .menu {
@@ -159,6 +161,8 @@ main {
 .navbar .menu li a {
   color: white;
   text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
 .navbar .menu .page {
@@ -191,24 +195,32 @@ main {
   margin: 0;
   padding: 0;
   font-weight: 800;
-  font-size: 50px;
+  font-size: 3rem;
   color: #fff;
+  line-height: 45px;
+  letter-spacing: 3px;
+  font-family: "source-sans-pro", sans-serif;
 }
 
 .hero-caption p {
   color: #f7d734;
-  font-size: 35px;
+  font-size: 2.2rem;
+  font-weight: 500;
   margin: 0;
   padding: 0;
 }
 
 #home-hero-content .btn,
 #home-hero-content .btn1 {
+  display: inline-block;
+  width: 180px;
+  height: 45px;
   padding: 10px 30px;
   text-decoration: none;
   text-transform: uppercase;
   margin: 10px;
-  border-radius: 15px;
+  border-radius: 26px;
+  text-align: center;
 }
 
 #home-hero-content .btn {
@@ -227,6 +239,8 @@ main {
 }
 
 .hero-buttons a {
+  font-family: "source-sans-pro", sans-serif;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
@@ -236,7 +250,10 @@ main {
   width: 100%;
   height: 600px;
   margin: auto;
-  background: #3d1973;
+  background: url(../img/Layer2.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 0 0 20px 0;
 }
 
@@ -275,6 +292,7 @@ main {
   border-radius: 5px;
   box-shadow: 0 3px 14px 0 rgba(0, 0, 0, .5);
   opacity: .8;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .slide h2 {
@@ -283,14 +301,16 @@ main {
   width: 100%;
   color: #fff;
   text-transform: uppercase;
-  font-size: 25px;
+  font-size: 2.5rem;
+  font-family: "source-sans-pro", sans-serif;
 }
 
 .slide p {
   position: absolute;
   top: 400px;
   color: #f7d734;
-  font-size: 15px;
+  font-size: 1.5rem;
+  font-family: "source-sans-pro", sans-serif;
 }
 
 .slide img {
@@ -309,15 +329,17 @@ main {
 .slide .btn {
   position: absolute;
   bottom: 10px;
-  left: 40px;
-  right: 40px;
+  left: 50px;
+  right: 50px;
   background: #fff;
   color: #f7d734;
-  border-radius: 20px;
+  border-radius: 26px;
   padding: 10px 20px;
   text-decoration: none;
   text-transform: uppercase;
   margin: 10px;
+  font-family: "source-sans-pro", sans-serif;
+  font-size: 1.6rem;
 }
 
 button.prev,
@@ -331,7 +353,7 @@ button.next {
   padding: 0 8px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 3rem;
 }
 
 button.prev {
@@ -357,10 +379,15 @@ button.next {
 
 .about-photo {
   flex: 0 1 30%;
-  color: #3d1973;
+  color: #3E1A74;
   text-transform: uppercase;
   text-align: center;
   padding-left: 30px;
+}
+
+.about-photo h3 {
+  font-family: "source-sans-pro", sans-serif;
+  font-size: 1.6rem;
 }
 
 .about-photo img {
@@ -382,14 +409,17 @@ button.next {
   padding: 30px 30px 30px 0;
   color: #f7d734;
   font-weight: bold;
+  font-family: "source-sans-pro", sans-serif;
+  font-size: 1.7rem;
 }
 
 /** Services **/
 #service h3 {
-  font-size: 30px;
+  font-size: 3rem;
   font-weight: bold;
   color: #f7d734;
   text-shadow: #000;
+  font-family: "source-sans-pro", sans-serif;
 }
 
 .square-container {
@@ -401,10 +431,10 @@ button.next {
 }
 
 .square {
-  width: 400px;
+  flex: 1 1 calc(33.333% - 20px);
   height: 200px;
-  margin: 30px 0;
-  border-radius: 10%;
+  margin: 10px;
+  border-radius: 35px;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, .3);
 }
 
@@ -487,7 +517,6 @@ button.next {
 
 /**INFO**/
 #info {
-  margin: 0 96px;
   position: relative;
   top: -150px;
   z-index: 10;
@@ -504,9 +533,9 @@ button.next {
 }
 
 #info .square {
-  width: 270px;
+  flex: 1 1 calc(25% - 20px);
   height: 200px;
-  margin: 30px 0;
+  margin: 10px;
   border-radius: 5%;
   box-shadow: 0 3px 14px 0 rgba(0, 0, 0, .5);
   background-color: #897cac;
@@ -516,13 +545,14 @@ button.next {
 
 #info .square h2 {
   color: #fff;
-  font-size: 16px;
+  font-size: 1.6rem;
   margin-top: 30px;
 }
 
 #info .square p {
   color: #f7d734;
-  font-size: 14px;
+  font-size: 1.4rem;
+  font-family: "source-sans-pro", sans-serif;
   margin-top: 20px;
 }
 
@@ -599,6 +629,10 @@ button.next {
   flex-direction: column;
   align-items: center;
   height: 500px;
+  background: url(../img/Layer3.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #about-slider .title-image {
@@ -607,7 +641,7 @@ button.next {
 
 #about-slider h2 {
   color: #fff;
-  font-size: 40px;
+  font-size: 3rem;
 }
 
 #about-slider-container {
@@ -622,22 +656,45 @@ button.next {
 
 #about-slider .circle p {
   margin: 10px 0;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
-#about-slider .circle img {
+#about-slider-container .circle-img {
+  position: relative;
+  overflow: hidden;
   width: 250px;
   height: 250px;
   border-radius: 50%;
+}
+
+#about-slider-container .circle-img img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
+#about-slider-container .circle-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(31, 25, 115, .8), rgba(31, 25, 115, .1), rgba(31, 25, 115, .6));
+}
+
 /**committes**/
-#commitees-content {
+#committees-content {
   padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#committees-content h2 {
+  font-size: 3rem;
+  font-family: 'montserrat', sans-serif;
+  text-transform: uppercase;
 }
 
 .about-square {
@@ -654,11 +711,11 @@ button.next {
 }
 
 .arrow1 {
-  right: 90px;
+  right: 30px;
 }
 
 .arrow2 {
-  left: 90px;
+  left: 30px;
 }
 
 .about-square-card {
@@ -666,7 +723,7 @@ button.next {
 }
 
 .card-right {
-  background: #3d1973;
+  background: #3E1A74;
 }
 
 .card-left {
@@ -675,11 +732,15 @@ button.next {
 }
 
 .about-square h2 {
-  font-size: 30px;
+  font-size: 3rem;
 }
 
 .hide-content {
   display: none;
+}
+
+.about-square {
+  transition: width 0.5s ease-in-out;
 }
 
 .about-square:hover {
@@ -722,7 +783,7 @@ button.next {
 
 #about-square-container .left h2,
 #about-square-container .left p {
-  color: #3d1973;
+  color: #3E1A74;
 }
 
 #about-square-container .right p {
@@ -740,12 +801,12 @@ button.next {
 
 .btn-right {
   background: #f7d734;
-  color: #3d1973;
+  color: #3E1A74;
 }
 
 .btn-left {
   color: #f7d734;
-  background: #3d1973;
+  background: #3E1A74;
 }
 
 /**Team**/
@@ -755,6 +816,10 @@ button.next {
   align-items: center;
   height: 550px;
   padding-bottom: 100px;
+  background: url(../img/Layer4.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #team-slider .title-image {
@@ -763,7 +828,8 @@ button.next {
 
 #team-slider h2 {
   color: #fff;
-  font-size: 40px;
+  font-size: 3rem;
+  text-transform: uppercase;
 }
 
 #team-slider-container {
@@ -791,6 +857,7 @@ button.next {
   height: 250px;
   border-radius: 50%;
   overflow: hidden;
+  transition: width 0.3s ease;
 }
 
 #team-slider .team-circle img {
@@ -820,7 +887,7 @@ button.team-next {
   padding: 0 8px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 3rem;
 }
 
 button.team-prev {
@@ -850,8 +917,8 @@ button.team-next {
 
 .contact-container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 120px;
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -861,14 +928,21 @@ button.team-next {
   flex-direction: column;
   justify-content: center;
   align-items: left;
-  padding: 35px 10px 35px 35px;
-  background: #3d1973;
+  padding: 35px 10px 10px 35px;
+  background: #3E1A74;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 12px;
+}
+
+.get-in-touch h2 {
+  font-size: 2.2rem;
+  font-family: 'source-sans-pro', sans-serif;
 }
 
 .get-in-touch h3 {
-  margin: 20px 0;
+  font-size: 1.5rem;
+  font-family: 'source-sans-pro', sans-serif;
+  margin: 20px 20px 20px 0;
 }
 
 .social-contact {
@@ -886,6 +960,8 @@ a {
 
 .social-contact-container p {
   color: #fff;
+  font-size: 1.4rem;
+  font-family: 'source-sans-pro', sans-serif;
   padding: 18px 0 0 5px;
 }
 
@@ -931,14 +1007,15 @@ a {
 
 #submit-button {
   background: #f7d734;
-  color: #3d1973;
+  color: #3E1A74;
   text-transform: uppercase;
   font-weight: bold;
   padding: 8px 25px;
+  font-size: 1.6rem;
 }
 
 .contact-form-square {
-  background: #3d1973;
+  background: #3E1A74;
   padding: 50px 20px;
   margin-top: 50px;
   text-align: center;
@@ -948,7 +1025,7 @@ a {
 .contact-form-square h3 {
   color: #fff;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 .contact-form-square h4 {
@@ -976,10 +1053,12 @@ footer h2,
 footer h3 {
   padding: 0;
   margin: 0;
+  font-family: "source-sans-pro", sans-serif;
+  font-size: 1.8rem;
 }
 
 #footer-up {
-  background-color: #3d1973;
+  background-color: #3E1A74;
 }
 
 .footer-up-content {
@@ -993,6 +1072,10 @@ footer h3 {
   gap: 60px;
 }
 
+#advantage {
+  margin-right: 30px;
+}
+
 #advantage ul {
   margin: 0;
   padding: 30px 0;
@@ -1001,40 +1084,24 @@ footer h3 {
 #advantage li {
   list-style: none;
   padding-bottom: 20px;
+  font-family: "source-sans-pro", sans-serif;
+  font-size: 1.6rem;
 }
 
 #social p {
   margin: 40px 0;
+  font-family: "source-sans-pro", sans-serif;
+  font-size: 1.6rem;
 }
 
 #logo-footer {
   justify-self: self-end;
-}
-
-#logo-footer {
-  display: flex;
+  margin-right: 20px;
 }
 
 #logo-footer img {
-  width: 110px;
-  height: 140px;
-}
-
-#logo-footer .logo-name {
-  display: flex;
-  flex-direction: column;
-  text-transform: uppercase;
-  text-align: left;
-  font-weight: 800;
-  border-left: 4px solid #fff;
-  height: 135px;
-}
-
-#logo-footer .logo-name p {
-  margin: 0;
-  padding: 0 0 0 5px;
-  font-size: 35px;
-  line-height: 40px;
+  width: 400px;
+  height: auto;
 }
 
 #social-img-content {
@@ -1060,4 +1127,21 @@ footer h3 {
   padding: 10px 300px 10px 60px;
   display: flex;
   justify-content: space-between;
+}
+
+#footer-bot p {
+  font-family: "source-sans-pro", sans-serif;
+  font-size: 1.4rem;
+}
+
+/**Media queries**/
+
+@media (max-width: 650px) {
+  .square {
+    flex: 1 1 calc(33.333% - 40px);
+  }
+
+  #service h3 {
+    font-size: 20px;
+  }
 }
