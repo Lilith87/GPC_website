@@ -22,6 +22,38 @@
   });
 });**/
 
+document.addEventListener('DOMContentLoaded', function () {
+  const images = [
+    'img/history.jpg',      // Prima immagine
+    'img/contact-hero.jpg', // Seconda immagine
+    'img/history1.jpg',     // Terza immagine
+    'img/Hero-content.jpg'  // Quarta immagine
+  ];
+
+  let currentInd = 0; // Indice dell'immagine corrente
+  const aboutPhotoContainer = document.querySelector('#about-photo'); // Contenitore immagine
+  const aboutPhotoImg = aboutPhotoContainer.querySelector('img'); // Immagine principale
+  const arrowContainer = document.querySelector('.arrow'); // Contenitore della freccia
+
+  // Verifica che gli elementi siano stati trovati
+  if (!aboutPhotoImg || !arrowContainer) return;
+
+  // Aggiungi il listener al clic sul contenitore dell'immagine
+  aboutPhotoContainer.addEventListener('click', function () {
+    // Cambia immagine nella sequenza
+    currentInd = (currentInd + 1) % images.length; // Incrementa l'indice e torna a 0 alla fine
+    aboutPhotoImg.src = images[currentInd]; // Cambia la sorgente dell'immagine principale
+
+    // Aggiungi la classe per la rotazione della freccia
+    arrowContainer.classList.add('rotate-arrow');
+
+    // Rimuovi la classe dopo l'animazione
+    arrowContainer.addEventListener('animationend', function () {
+      arrowContainer.classList.remove('rotate-arrow');
+    }, { once: true });
+  });
+});
+
 //Circle slider
 const sliderContainer = document.querySelector('#team-slider-container');
 const circles = Array.from(document.querySelectorAll('.team-circle'));

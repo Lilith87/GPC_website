@@ -560,10 +560,12 @@ button.next {
   background-color: #2b1952;
 }
 
-#history,
-#operate,
+#history
+
+/**#operate,
 #testimonials,
-#collaborations {
+#collaborations**/
+  {
   display: flex;
 }
 
@@ -574,28 +576,96 @@ button.next {
   flex: 0 1 70%;
 }
 
-#operate,
+/**#operate,
 #testimonials,
 #collaborations {
   display: none;
-}
+}**/
 
 #info .grafica-aboutpage {
   position: relative;
   width: 300px;
   height: 300px;
-  padding: 10px 0 10px 10px;
   border-radius: 50%;
+  overflow: hidden;
 }
 
 #info .grafica-aboutpage img {
-  position: absolute;
-  bottom: -35px;
-  left: 30px;
-  width: 90%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-#about-photo {
+#info .grafica-aboutpage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(31, 25, 115, .8), rgba(0, 0, 0, .1), rgba(31, 25, 115, .6));
+}
+
+#about-photo-container {
+  position: relative;
+  padding: 20px;
+}
+
+#about-photo-container .arrow {
+  position: absolute;
+  top: 190px;
+  right: -4px;
+}
+
+#about-photo-container .arrow img {
+  width: 96%;
+  transform: rotate(8deg);
+  transition: transform 1s ease-in-out, top 1s ease-in-out, right 1s ease-in-out, left 1s ease-in-out;
+}
+
+/* Classe per animare la freccia */
+.rotate-arrow {
+  animation: moveAndRotate 0.5s linear;
+}
+
+/* Animazione per far spostare e ruotare la freccia */
+@keyframes moveAndRotate {
+  0% {
+    top: 190px;
+    right: -4px;
+    transform: rotate(8deg);
+  }
+
+  25% {
+    top: 30px;
+    left: -120px;
+    right: auto;
+    transform: rotate(98deg);
+  }
+
+  50% {
+    top: -20px;
+    left: 50px;
+    right: auto;
+    transform: rotate(188deg);
+  }
+
+  75% {
+    top: 100px;
+    right: -120px;
+    left: auto;
+    transform: rotate(278deg);
+  }
+
+  100% {
+    top: 190px;
+    right: -4px;
+    left: auto;
+    transform: rotate(368deg);
+  }
+}
+
+/**#about-photo {
   background: linear-gradient(to right, rgba(31, 25, 115, .8), rgba(0, 0, 0, .3), rgba(31, 25, 115, .6)),
     url("../img/history.jpg");
   background-position: center;
@@ -621,7 +691,7 @@ button.next {
     url("../img/history.jpg");
   background-position: center;
   background-size: cover;
-}
+}**/
 
 /**Slider**/
 #about-slider {
