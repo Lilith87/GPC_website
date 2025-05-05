@@ -30,6 +30,22 @@
         <li><a href="contact.html">Contact</a></li>
         <li><a href="donation.html">Donation</a></li>
       </ul>
+      <div class="hamburger">
+        <div class="hamburger-graphic">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="hamburger-menu">
+          <ul class="hamburger-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="donation.html">Donation</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -238,6 +254,14 @@
     </div>
   </footer>
 
+  <script>
+    let hamburger = document.querySelector('.hamburger');
+    let menu = document.querySelector('.hamburger-menu');
+
+    hamburger.addEventListener("click", function () {
+      menu.classList.toggle('open'); // Alterna la classe direttamente al menu
+    });
+  </script>
 </body>
 
 </html>

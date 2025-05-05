@@ -111,3 +111,10 @@ nextButton.addEventListener('click', () => {
   checkAndCloneSlides(); // Verify and clone if necessary
   updateSlider();
 });
+
+let hamburger = document.querySelector('.hamburger');
+let menu = document.querySelector('.hamburger-menu');
+
+hamburger.addEventListener("click", function () {
+  menu.classList.toggle('open'); // Alterna la classe direttamente al menu
+});
