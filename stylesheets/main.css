@@ -1388,7 +1388,7 @@ footer h3 {
 
   .hamburger-menu {
     position: absolute;
-    top: 63px;
+    top: 58px;
     right: -220px;
     width: 200px;
     height: calc(100vh - 63px);
