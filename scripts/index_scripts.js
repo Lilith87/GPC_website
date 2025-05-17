@@ -6,19 +6,24 @@ const nextButton = document.querySelector('.next');
 let currentIndex = 0;
 let totalSlides = slides.length;
 
-// Clone slides function
+// Funzione per determinare quante slide sono visibili (1 su mobile, 3 su desktop)
+function getVisibleSlides() {
+  return window.innerWidth <= 750 ? 1 : 3;
+}
+
+// Funzione per clonare le slide per effetto infinito
 function cloneSlides() {
   slides.forEach(slide => {
     const clone = slide.cloneNode(true);
     sliderContainer.appendChild(clone);
   });
-  // Update list after clonation
+  // Aggiorna il numero totale di slide dopo la clonazione
   totalSlides = document.querySelectorAll('.slide').length;
 }
 
-// Update the slider
+// Aggiorna la visualizzazione delle slide
 function updateSlider() {
-  const visibleSlides = 3;
+  const visibleSlides = getVisibleSlides();
   const centerIndex = Math.floor(visibleSlides / 2);
 
   const allSlides = document.querySelectorAll('.slide');
@@ -31,30 +36,34 @@ function updateSlider() {
       allSlides[i].classList.add('hidden');
     }
   }
-  console.log(activeSlideIndex)
 }
 
-// Clone the slides if necessary
+// Clona le slide se necessario quando si scorre
 function checkAndCloneSlides() {
-  if (currentIndex + Math.floor(3 / 2) >= totalSlides - slides.length) {
+  if (currentIndex + Math.floor(getVisibleSlides() / 2) >= totalSlides - slides.length) {
     cloneSlides();
   }
 }
 
-cloneSlides(); // First clonation
+// Prima clonazione e aggiornamento slider
+cloneSlides();
 updateSlider();
 
+// Eventi per i pulsanti di navigazione
 prevButton.addEventListener('click', () => {
   currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
-  checkAndCloneSlides(); // Verify and clone if necessary
+  checkAndCloneSlides();
   updateSlider();
 });
 
 nextButton.addEventListener('click', () => {
   currentIndex = (currentIndex + 1) % totalSlides;
-  checkAndCloneSlides(); // Verifica e clona le slide se necessario
+  checkAndCloneSlides();
   updateSlider();
 });
+
+// Aggiorna la slider quando la finestra cambia dimensione
+window.addEventListener('resize', updateSlider);
 
 let hamburger = document.querySelector('.hamburger');
 let menu = document.querySelector('.hamburger-menu');

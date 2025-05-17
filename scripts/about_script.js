@@ -63,19 +63,24 @@ const nextButton = document.querySelector('.team-next');
 let currentIndex = 0;
 let totalCircles = circles.length;
 
-// Clone slides function
+// Funzione per determinare quante "team-circle" sono visibili (1 su mobile, 3 su desktop)
+function getVisibleCircles() {
+  return window.innerWidth <= 600 ? 1 : 3;
+}
+
+// Funzione per clonare le "team-circle" per effetto infinito
 function cloneCircles() {
   circles.forEach(circle => {
     const clone = circle.cloneNode(true);
     sliderContainer.appendChild(clone);
   });
-  // Update list after clonation
+  // Aggiorna il numero totale dopo la clonazione
   totalCircles = document.querySelectorAll('.team-circle').length;
 }
 
-// Update the slider
+// Aggiorna la visualizzazione delle "team-circle"
 function updateSlider() {
-  const visibleCircles = 3;
+  const visibleCircles = getVisibleCircles();
   const centerIndex = Math.floor(visibleCircles / 2);
 
   const allCircles = document.querySelectorAll('.team-circle');
@@ -90,27 +95,32 @@ function updateSlider() {
   }
 }
 
-// Clone the slides if necessary
-function checkAndCloneSlides() {
-  if (currentIndex + Math.floor(3 / 2) >= totalCircles - circles.length) {
+// Clona le "team-circle" se necessario quando si scorre
+function checkAndCloneCircles() {
+  if (currentIndex + Math.floor(getVisibleCircles() / 2) >= totalCircles - circles.length) {
     cloneCircles();
   }
 }
 
-cloneCircles(); // First clonation
+// Prima clonazione e aggiornamento slider
+cloneCircles();
 updateSlider();
 
+// Eventi per i pulsanti di navigazione
 prevButton.addEventListener('click', () => {
   currentIndex = (currentIndex === 0) ? totalCircles - 1 : currentIndex - 1;
-  checkAndCloneSlides(); // Verify and clone if necessary
+  checkAndCloneCircles();
   updateSlider();
 });
 
 nextButton.addEventListener('click', () => {
   currentIndex = (currentIndex + 1) % totalCircles;
-  checkAndCloneSlides(); // Verify and clone if necessary
+  checkAndCloneCircles();
   updateSlider();
 });
+
+// Aggiorna la slider quando la finestra cambia dimensione
+window.addEventListener('resize', updateSlider);
 
 let hamburger = document.querySelector('.hamburger');
 let menu = document.querySelector('.hamburger-menu');
