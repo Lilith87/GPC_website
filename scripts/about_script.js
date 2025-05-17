@@ -1,6 +1,6 @@
 //Info square active
 
-/**document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   const squares = document.querySelectorAll('.square');
   const sections = document.querySelectorAll('.cliccable');
 
@@ -20,7 +20,7 @@
       document.getElementById(sectionId).style.display = 'flex';
     });
   });
-});**/
+});
 
 document.addEventListener('DOMContentLoaded', function () {
   const images = [
