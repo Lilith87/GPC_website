@@ -1,27 +1,3 @@
-//Info square active
-
-document.addEventListener('DOMContentLoaded', function () {
-  const squares = document.querySelectorAll('.square');
-  const sections = document.querySelectorAll('.cliccable');
-
-  squares.forEach(square => {
-    square.addEventListener('click', function () {
-      // Remove the 'active' class from all squares
-      squares.forEach(sq => sq.classList.remove('active'));
-
-      // Add the 'active' class to the clicked square
-      this.classList.add('active');
-
-      // Hide all sections
-      sections.forEach(section => section.style.display = 'none');
-
-      // Show the corresponding section
-      const sectionId = this.id.replace('-square', '');
-      document.getElementById(sectionId).style.display = 'flex';
-    });
-  });
-});
-
 document.addEventListener('DOMContentLoaded', function () {
   const images = [
     'img/history.jpg',      // Prima immagine

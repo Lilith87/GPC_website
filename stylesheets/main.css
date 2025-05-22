@@ -554,10 +554,14 @@ button.next {
   flex: 0 1 75%;
 }
 
+#info .infosquare-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
 #info .square {
-  flex: 1 1 calc(25% - 20px);
   height: 200px;
-  margin: 10px;
   border-radius: 5%;
   box-shadow: 0 3px 14px 0 rgba(0, 0, 0, .5);
   background-color: #897cac;
@@ -582,26 +586,12 @@ button.next {
   background-color: #2b1952;
 }
 
-#history
-
-/**#operate,
-#testimonials,
-#collaborations**/
-  {
+#history {
   display: flex;
 }
 
-#about-content,
-#operate-content,
-#testimonials-content,
-#collaborations-content {
+#about-content {
   flex: 0 1 70%;
-}
-
-#operate,
-#testimonials,
-#collaborations {
-  display: none;
 }
 
 #info .grafica-aboutpage {
@@ -688,27 +678,6 @@ button.next {
 }
 
 #about-photo {
-  background: linear-gradient(to right, rgba(31, 25, 115, .8), rgba(0, 0, 0, .3), rgba(31, 25, 115, .6)),
-    url("../img/history.jpg");
-  background-position: center;
-  background-size: cover;
-}
-
-#operate-photo {
-  background: linear-gradient(to right, rgba(31, 25, 115, .8), rgba(0, 0, 0, .3), rgba(31, 25, 115, .6)),
-    url("../img/history.jpg");
-  background-position: center;
-  background-size: cover;
-}
-
-#testimonials-photo {
-  background: linear-gradient(to right, rgba(31, 25, 115, .8), rgba(0, 0, 0, .3), rgba(31, 25, 115, .6)),
-    url("../img/history.jpg");
-  background-position: center;
-  background-size: cover;
-}
-
-#collaborations-photo {
   background: linear-gradient(to right, rgba(31, 25, 115, .8), rgba(0, 0, 0, .3), rgba(31, 25, 115, .6)),
     url("../img/history.jpg");
   background-position: center;
