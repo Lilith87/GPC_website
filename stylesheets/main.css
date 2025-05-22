@@ -162,7 +162,7 @@ main {
 .navbar .menu li a {
   color: white;
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-weight: 500;
 }
 
@@ -175,7 +175,7 @@ main {
 }
 
 #logo-header {
-  width: 200px;
+  width: 150px;
 }
 
 #logo-header img {
