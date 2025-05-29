@@ -1,3 +1,4 @@
+//change image on click
 document.addEventListener('DOMContentLoaded', function () {
   const images = [
     'img/history.jpg',      // Prima immagine
@@ -106,107 +107,56 @@ hamburger.addEventListener("click", function () {
   menu.classList.toggle('open');
 });
 
-//scroll automatico
+//Open hide-history
 document.addEventListener('DOMContentLoaded', function () {
-  const squareSliderContainer = document.getElementById('about-square-container');
-  const sliderTrack = document.getElementById('about-slider-track');
-  let squares = Array.from(document.querySelectorAll('.about-square'));
+  const openBtn = document.querySelector('.open-history');
+  const closeBtn = document.querySelector('.close-history');
+  const historyBlock = document.querySelector('.hide-history');
 
-  let currentSquareIndex = 0;
-  let totalSquares = squares.length;
-  let visibleSquares = getVisibleSquares();
+  // All'inizio, nascondi il blocco (se non già nascosto via CSS)
+  historyBlock.style.display = 'none';
 
-  function getVisibleSquares() {
-    return window.innerWidth <= 835 ? 1 : 3;
-  }
-
-  function updateSlider() {
-    visibleSquares = getVisibleSquares();
-    squares.forEach((square, i) => {
-      if (i >= currentSquareIndex && i < currentSquareIndex + visibleSquares) {
-        square.style.display = '';
-      } else {
-        square.style.display = 'none';
-      }
-    });
-  }
-
-  function goToNext() {
-    currentSquareIndex++;
-    // Ricomincia dall'inizio quando raggiunge la fine
-    if (currentSquareIndex > totalSquares - visibleSquares) {
-      currentSquareIndex = 0;
-    }
-    updateSlider();
-  }
-
-  let autoplayInterval = null;
-  let autoplayDelay = 1000;
-
-  function startAutoplay() {
-    if (autoplayInterval) clearInterval(autoplayInterval);
-    autoplayInterval = setInterval(goToNext, autoplayDelay);
-  }
-
-  function stopAutoplay() {
-    if (autoplayInterval) clearInterval(autoplayInterval);
-    autoplayInterval = null;
-  }
-
-  // Aggiorna il numero di visibili al resize
-  window.addEventListener('resize', function () {
-    visibleSquares = getVisibleSquares();
-    // Correggi l'indice se necessario
-    if (currentSquareIndex > totalSquares - visibleSquares) {
-      currentSquareIndex = 0;
-    }
-    updateSlider();
+  openBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    historyBlock.style.display = 'block';
+    openBtn.style.display = 'none';
   });
 
-  // Inizializzazione
-  updateSlider();
-  startAutoplay();
+  closeBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    historyBlock.style.display = 'none';
+    openBtn.style.display = 'inline-block';
+  });
+});
 
-  // Pausa autoplay su hover
-  if (squareSliderContainer) {
-    squareSliderContainer.addEventListener('mouseenter', stopAutoplay);
-    squareSliderContainer.addEventListener('mouseleave', startAutoplay);
-  }
+//Open hide-content
+document.addEventListener('DOMContentLoaded', function () {
+  const slider = document.getElementById('about-slider-track');
+  const squares = slider.querySelectorAll('.about-square');
+  const readMoreBtns = slider.querySelectorAll('.comm-btn');
+  const closeBtns = slider.querySelectorAll('.close-detail');
 
-
-  document.querySelectorAll('.comm-btn').forEach(function (btn) {
+  readMoreBtns.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-
-      const track = document.getElementById('about-slider-track');
-      const thisSquare = btn.closest('.about-square');
-
-      // Se è già attiva, chiudi la modalità dettaglio
-      if (track.classList.contains('show-detail') && thisSquare.classList.contains('detail-view')) {
-        track.classList.remove('show-detail');
-        thisSquare.classList.remove('detail-view');
-        return;
-      }
-
-      // Nascondi eventuali precedenti
-      document.querySelectorAll('.about-square').forEach(function (square) {
-        square.classList.remove('detail-view');
-      });
-
-      // Attiva la modalità dettaglio
-      track.classList.add('show-detail');
-      thisSquare.classList.add('detail-view');
+      // Trova la card su cui hai cliccato
+      const aboutSquare = btn.closest('.about-square');
+      // Nascondi tutte le card
+      squares.forEach(sq => sq.classList.remove('detail-view'));
+      // Attiva la classe di dettaglio SOLO su quella cliccata
+      aboutSquare.classList.add('detail-view');
+      // Attiva il layout di dettaglio
+      slider.classList.add('show-detail');
     });
   });
 
-  // Bottone Close
-  document.addEventListener('click', function (e) {
-    if (e.target.classList.contains('close-detail')) {
-      const track = document.getElementById('about-slider-track');
-      document.querySelectorAll('.about-square').forEach(function (square) {
-        square.classList.remove('detail-view');
-      });
-      track.classList.remove('show-detail');
-    }
+  closeBtns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      // Rimuovi la classe di dettaglio da tutte le card
+      squares.forEach(sq => sq.classList.remove('detail-view'));
+      // Torna alla griglia
+      slider.classList.remove('show-detail');
+    });
   });
 });

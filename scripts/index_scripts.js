@@ -1,3 +1,4 @@
+//slider
 const sliderContainer = document.querySelector('#home-slider-container');
 const slides = Array.from(document.querySelectorAll('.slide'));
 const prevButton = document.querySelector('.prev');
@@ -70,6 +71,26 @@ let menu = document.querySelector('.hamburger-menu');
 
 hamburger.addEventListener("click", function () {
   menu.classList.toggle('open'); // Alterna la classe direttamente al menu
+});
+
+//button hovered function
+const btn = document.querySelector('.btn');
+const btn1 = document.querySelector('.btn1');
+
+// Quando passi il mouse su "Read More", cambia anche "Contact Us"
+btn.addEventListener('mouseenter', () => {
+  btn1.classList.add('hovered1');
+});
+btn.addEventListener('mouseleave', () => {
+  btn1.classList.remove('hovered1');
+});
+
+// Quando passi il mouse su "Contact Us", cambia anche "Read More"
+btn1.addEventListener('mouseenter', () => {
+  btn.classList.add('hovered');
+});
+btn1.addEventListener('mouseleave', () => {
+  btn.classList.remove('hovered');
 });
 
 

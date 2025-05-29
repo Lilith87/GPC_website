@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Girl on the Path of Change</title>
+  <!--CSS-->
+  <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+  <!--FONT-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/jac5pza.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div id="logo-header">
+        <img src="img/logopurple.png" alt="GPC">
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="page"><a href="programs.html">Programs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="donation.html">Donation</a></li>
+      </ul>
+      <div class="hamburger">
+        <div class="hamburger-graphic">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="hamburger-menu">
+          <ul class="hamburger-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="stories.html">Stories</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="donation.html">Donation</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+  </main>
+  <!--Footer-->
+  <footer>
+    <div id="footer-up">
+      <div class="footer-up-content">
+        <div id="footer-left">
+          <div id="social">
+            <h2>GET IN TOUCH</h2>
+            <h3>Social Media Links</h3>
+            <div id="social-img-content">
+              <div class="social-img">
+                <a href="#">
+                  <img src="img/mail.png" alt="mail">
+                </a>
+              </div>
+              <div class="social-img">
+                <a href="#">
+                  <img src="img/instagram.png" alt="instagram">
+                </a>
+              </div>
+              <div class="social-img">
+                <a href="#">
+                  <img src="img/twitter.png" alt="twitter">
+                </a>
+              </div>
+              <div class="social-img">
+                <a href="#">
+                  <img src="img/linkedin.png" alt="linkedin">
+                </a>
+              </div>
+              <div class="social-img">
+                <a href="#">
+                  <img src="img/whatsapp.png" alt="whatsapp">
+                </a>
+              </div>
+              <div class="social-img">
+                <a href="#">
+                  <img src="img/facebook.png" alt="facebook">
+                </a>
+              </div>
+              <div class="social-img">
+                <a href="#">
+                  <img src="img/youtube.png" alt="youtube">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="footer-right">
+          <div id="logo-footer">
+            <img src="img/logopurple.png" alt="GPC">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer-bot">
+      <p>© 2025 Girls on the path of change All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    let hamburger = document.querySelector('.hamburger');
+    let menu = document.querySelector('.hamburger-menu');
+
+    hamburger.addEventListener("click", function () {
+      menu.classList.toggle('open'); // Alterna la classe direttamente al menu
+    });
+  </script>
+</body>
+
+</html>
