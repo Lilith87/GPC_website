@@ -27,8 +27,8 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="stories.html">Stories</a></li>
-        <li class="page"><a href="contact.html">Contact</a></li>
-        <li><a href="donation.html">Donation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="page"><a href="donation.html">Donation</a></li>
       </ul>
       <div class="hamburger">
         <div class="hamburger-graphic">
@@ -50,49 +50,17 @@
   </header>
 
   <main>
-    <!--Hero-->
-    <section id="contact-hero-content" class="hero-layout">
-      <div class="hero-caption">
-        <h1>Contact Us To Make A Change <br>For Afghan Girls And Their Future!</h1>
-      </div>
-    </section>
-    <!--Contact-->
-    <section id="contact-section">
-      <div class="contact-container">
-        <div class="contact-form-container">
-          <form id="contact-form" action="sendmail.php" method="post">
-            <div class="form-group item1">
-              <input type="email" id="email" name="email" placeholder="Email" required>
-            </div>
-            <div class="form-group item2">
-              <input type="text" id="name" name="name" placeholder="Full name" required>
-            </div>
-            <div class="form-group item3">
-              <input type="date" id="birthdate" name="birthdate" placeholder="Date of birth" required>
-            </div>
-            <div class="form-group item4">
-              <select id="subject" name="subject" required>
-                <option value="Select Subject" disabled selected>Select Subject</option>
-                <option value="Volunteership">Volunteership</option>
-                <option value="Share your story">Share your story</option>
-                <option value="Partners">Partners</option>
-                <option value="Support GPC">Support GPC</option>
-                <option value="">Other</option>Other
-              </select>
-            </div>
-            <div class="form-group item5">
-              <textarea id="message" name="message" placeholder="Message" required></textarea>
-            </div>
-            <br>
-            <div class="form-group item6">
-              <button type="submit" id="submit-button">Submit</button>
-            </div>
-          </form>
+    <section>
+      <div id="donation-container">
+        <div class="donation-content">
+          <div class="donation-button">
+            <a href="https://www.gofundme.com/f/support-our-mission-to-uplift-women-girls-in-afghanistan?attribution_id=sl:b4c3a3ce-6a0c-4ffb-8b60-5f87aee4eb02&lang=en_US&utm_campaign=man_sharesheet_dash&utm_content=amp13_t1&utm_medium=customer&utm_source=copy_link"
+              class="don-btn">Donate
+              now</a>
+          </div>
         </div>
       </div>
     </section>
-
-
   </main>
   <!--Footer-->
   <footer>
@@ -153,7 +121,14 @@
     </div>
   </footer>
 
-  <script src="scripts/contact_script.js"></script>
+  <script>
+    let hamburger = document.querySelector('.hamburger');
+    let menu = document.querySelector('.hamburger-menu');
+
+    hamburger.addEventListener("click", function () {
+      menu.classList.toggle('open'); // Alterna la classe direttamente al menu
+    });
+  </script>
 </body>
 
 </html>
