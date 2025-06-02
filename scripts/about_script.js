@@ -42,7 +42,7 @@ let totalCircles = circles.length;
 
 // Funzione per determinare quante "team-circle" sono visibili (1 su mobile, 3 su desktop)
 function getVisibleCircles() {
-  return window.innerWidth <= 835 ? 1 : 3;
+  return window.innerWidth <= 825 ? 1 : 3;
 }
 
 // Funzione per clonare le "team-circle" per effetto infinito
@@ -98,6 +98,74 @@ nextButton.addEventListener('click', () => {
 
 // Aggiorna la slider quando la finestra cambia dimensione
 window.addEventListener('resize', updateSlider);
+
+//Collaboration slider
+const collabContainer = document.querySelector('#about-slider-container');
+const collabCircle = Array.from(document.querySelectorAll('#about-slider-container .circle'));
+const prevBtn = document.querySelector('#about-slider .prev');
+const nextBtn = document.querySelector('#about-slider .next');
+
+let currentInd = 0;
+let totalCollabCircle = collabCircle.length;
+
+// Quanti elementi visibili: 1 su mobile, 3 su desktop
+function getVisCircles() {
+  return window.innerWidth <= 825 ? 1 : 3;
+}
+
+// Clona le .circle per effetto infinito
+function cloneCollabCircles() {
+  collabCircle.forEach(circle => {
+    const clone = circle.cloneNode(true);
+    collabContainer.appendChild(clone);
+  });
+  totalCollabCircle = document.querySelectorAll('#about-slider-container .circle').length;
+}
+
+// Aggiorna la visualizzazione
+function updSlider() {
+  const visCircles = getVisCircles();
+  const centerInd = Math.floor(visCircles / 2);
+  const allCollabCircles = document.querySelectorAll('#about-slider-container .circle');
+  allCollabCircles.forEach(circle => circle.classList.remove('active', 'hidden'));
+
+  const actSlideInd = (currentInd + centerInd) % totalCollabCircle;
+  allCollabCircles[actSlideInd].classList.add('active');
+  for (let i = 0; i < totalCollabCircle; i++) {
+    if (i < actSlideInd - centerInd || i > actSlideInd + centerInd) {
+      allCollabCircles[i].classList.add('hidden');
+    }
+  }
+}
+
+// Clona se necessario quando si scorre
+function checkAndCloneCollabCircles() {
+  if (currentInd + Math.floor(getVisCircles() / 2) >= totalCollabCircle - collabCircle.length) {
+    cloneCollabCircles();
+  }
+}
+
+// Avvio
+cloneCollabCircles();
+updSlider();
+
+// Eventi pulsanti
+prevBtn.addEventListener('click', () => {
+  currentInd = (currentInd === 0) ? totalCollabCircle - 1 : currentInd - 1;
+  checkAndCloneCollabCircles();
+  updSlider();
+});
+
+nextBtn.addEventListener('click', () => {
+  currentInd = (currentInd + 1) % totalCollabCircle;
+  checkAndCloneCollabCircles();
+  updSlider();
+});
+
+// Aggiorna slider su resize
+window.addEventListener('resize', updSlider);
+
+
 
 // Hamburger menu
 let hamburger = document.querySelector('.hamburger');
