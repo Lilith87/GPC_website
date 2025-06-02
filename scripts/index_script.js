@@ -9,7 +9,7 @@ let totalSlides = slides.length;
 
 // Funzione per determinare quante slide sono visibili (1 su mobile, 3 su desktop)
 function getVisibleSlides() {
-  return window.innerWidth <= 835 ? 1 : 3;
+  return window.innerWidth <= 960 ? 1 : 3;
 }
 
 // Funzione per clonare le slide per effetto infinito
