@@ -46,7 +46,7 @@ html {
 /**Layout**/
 /**Layout bianco**/
 .layout-bianco {
-  padding: 20px 20px 20px 0;
+  padding: 20px 0 20px 0;
   background: #fff;
 }
 
@@ -86,7 +86,7 @@ html {
 
 /**Layout blu**/
 .layout-blue {
-  padding: 20px 20px 20px 0;
+  padding: 20px 0 20px 0;
   background: #3E1A74;
 }
 
@@ -1021,7 +1021,7 @@ button.team-next {
 }
 
 #contact-hero-content .hero-caption {
-  padding: 300px 0;
+  padding: 300px 20px;
   text-align: center;
   line-height: 80px;
 }
@@ -1040,7 +1040,6 @@ button.team-next {
 }
 
 #contact-form {
-  margin-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
@@ -1491,6 +1490,13 @@ footer {
     font-size: 1.5rem;
   }
 
+  button.prev {
+    left: 40px;
+  }
+
+  button.next {
+    right: 40px;
+  }
 }
 
 @media only screen and (max-width: 825px) {
@@ -1531,6 +1537,14 @@ footer {
 
   #team-slider .team-circle.active {
     align-self: center;
+  }
+
+  button.team-prev {
+    left: 40px;
+  }
+
+  button.team-next {
+    right: 40px;
   }
 
   .social-img {
@@ -1576,8 +1590,12 @@ footer {
     letter-spacing: 0;
   }
 
+  #team-slider {
+    margin-top: 70px;
+  }
+
   .contact-form-container {
-    padding: 30px 20px 24px 20px;
+    padding: 0 20px 24px 20px;
   }
 }
 
@@ -1734,7 +1752,7 @@ footer {
   }
 
   .hero-caption {
-    padding: 40px 0 0 20px;
+    padding: 40px 20px 0 20px;
   }
 
   .hero-caption h1 {
@@ -1798,7 +1816,7 @@ footer {
 
   #home-hero-content .btn,
   #home-hero-content .btn1 {
-    width: 150px;
+    width: 130px;
     height: 35px;
     padding: 5px 10px;
   }
