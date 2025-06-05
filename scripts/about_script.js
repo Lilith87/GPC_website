@@ -228,3 +228,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+//info square
+document.addEventListener("DOMContentLoaded", function () {
+  // Get all squares
+  const squares = document.querySelectorAll('.infosquare-container .square');
+
+  squares.forEach(square => {
+    square.addEventListener('click', function (e) {
+      // Remove 'active' from all squares
+      squares.forEach(sq => sq.classList.remove('active'));
+      // Add 'active' to the clicked square
+      this.classList.add('active');
+    });
+  });
+});

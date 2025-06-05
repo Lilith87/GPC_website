@@ -93,4 +93,26 @@ btn1.addEventListener('mouseleave', () => {
   btn.classList.remove('hovered');
 });
 
+//Open hide-impact
+document.addEventListener('DOMContentLoaded', function () {
+  const openBtn = document.querySelector('.open-impact');
+  const closeBtn = document.querySelector('.close-impact');
+  const impactBlock = document.querySelector('.hide-impact');
+
+  // All'inizio, nascondi il blocco (se non già nascosto via CSS)
+  impactBlock.style.display = 'none';
+
+  openBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    impactBlock.style.display = 'block';
+    openBtn.style.display = 'none';
+  });
+
+  closeBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    impactBlock.style.display = 'none';
+    openBtn.style.display = 'inline-block';
+  });
+});
+
 
