@@ -72,10 +72,12 @@ html {
 
 .layout-bianco .btn,
 .layout-blue .btn {
-  display: inline-block;
+  display: flex;
   width: 180px;
   height: 45px;
-  padding: 15px 20px;
+  padding: 0 20px;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   text-transform: uppercase;
   background: #f7d734;
@@ -241,10 +243,12 @@ main {
 
 #home-hero-content .btn,
 #home-hero-content .btn1 {
-  display: inline-block;
+  display: flex;
   width: 180px;
   height: 45px;
-  padding: 10px 30px;
+  padding: 0 30px;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   text-transform: uppercase;
   margin: 10px;
@@ -278,6 +282,8 @@ main {
 .hero-buttons {
   margin-top: 50px;
   padding-bottom: 250px;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .hero-buttons a {
@@ -1053,33 +1059,54 @@ button.team-next {
 }
 
 #contact-form input,
-#contact-form textarea {
+#contact-form textarea,
+#contact-form label,
+#contact-form select {
   width: 100%;
-  height: 50px;
   padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+#contact-form input {
+  height: 50px;
 }
 
 #contact-form textarea {
   height: 100px;
+  resize: none;
 }
 
 #contact-form select {
   width: 100%;
   height: 50px;
   padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
   background: #fff url("data:image/svg+xml;utf8,<svg fill='gray' height='16' viewBox='0 0 20 20' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7.293 8.293a1 1 0 0 1 1.414 0L10 9.586l1.293-1.293a1 1 0 1 1 1.414 1.414l-2 2a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 0-1.414z'/></svg>") no-repeat right 12px center/20px 20px;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  box-sizing: border-box;
   padding-right: 36px;
 }
 
 .form-group.item4 {
   position: relative;
+}
+
+.item3 {
+  display: flex;
+}
+
+.item3 label {
+  flex: 0 1 30%;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.item3 input {
+  flex: 0 1 70%;
 }
 
 .item1,

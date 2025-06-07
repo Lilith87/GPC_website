@@ -71,28 +71,28 @@ document.addEventListener('DOMContentLoaded', function () {
   // Validazione in tempo reale (opzionale)
   form.email.addEventListener('input', function () {
     if (!validateEmail(this.value)) {
-      showError('email', 'Inserisci un’email valida');
+      showError('email', 'Enter a valid email');
     } else {
       document.getElementById('email-error').style.display = 'none';
     }
   });
   form.name.addEventListener('input', function () {
     if (!validateName(this.value)) {
-      showError('name', 'Il nome deve contenere solo lettere e almeno 2 caratteri');
+      showError('name', 'The name must contain only letters and at least 2 characters');
     } else {
       document.getElementById('name-error').style.display = 'none';
     }
   });
   form.birthdate.addEventListener('input', function () {
     if (!validateDate(this.value)) {
-      showError('birthdate', 'Inserisci una data di nascita valida');
+      showError('birthdate', 'Please enter a valid date of birth');
     } else {
       document.getElementById('birthdate-error').style.display = 'none';
     }
   });
   form.message.addEventListener('input', function () {
     if (!validateMessage(this.value)) {
-      showError('message', 'Il messaggio deve essere di almeno 10 caratteri');
+      showError('message', 'The message must be at least 10 characters long');
     } else {
       document.getElementById('message-error').style.display = 'none';
     }
@@ -110,30 +110,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const message = form.message.value.trim();
 
     if (!validateEmail(email)) {
-      showError('email', 'Inserisci un’email valida');
+      showError('email', 'Enter a valid email');
       hasError = true;
     }
     if (!validateName(name)) {
-      showError('name', 'Il nome deve contenere solo lettere e almeno 2 caratteri');
+      showError('name', 'The name must contain only letters and at least 2 characters');
       hasError = true;
     }
     if (!validateDate(birthdate)) {
-      showError('birthdate', 'Inserisci una data di nascita valida');
+      showError('birthdate', 'Please enter a valid date of birth');
       hasError = true;
     }
     if (!subject || subject === "") {
-      showError('subject', 'Seleziona il subject');
+      showError('subject', 'Select the subject');
       hasError = true;
     }
     if (!validateMessage(message)) {
-      showError('message', 'Il messaggio deve essere di almeno 10 caratteri');
+      showError('message', 'The message must be at least 10 characters long');
       hasError = true;
     }
 
     if (hasError) return;
 
     // Invio con AJAX
-    confirmMsg.textContent = 'Invio...';
+    confirmMsg.textContent = 'Sending...';
     confirmMsg.style.display = 'block';
 
     const formData = new FormData(form);
@@ -146,13 +146,13 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(text => {
         confirmMsg.textContent = text;
         confirmMsg.style.display = 'block';
-        if (text.toLowerCase().includes('successo')) {
+        if (text.toLowerCase().includes('successfully')) {
           form.reset();
           document.getElementById('subject').selectedIndex = 0;
         }
       })
       .catch(() => {
-        confirmMsg.textContent = "Errore nell'invio. Riprova più tardi.";
+        confirmMsg.textContent = "Error sending. Please try again later.";
         confirmMsg.style.display = 'block';
       });
   });

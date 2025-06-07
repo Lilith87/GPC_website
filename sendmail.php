@@ -14,24 +14,24 @@ if (
     empty($subject) ||
     empty($message)
 ) {
-    echo "Tutti i campi sono obbligatori.";
+    echo "All fields are required.";
     exit;
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo "Email non valida.";
+    echo "Invalid email.";
     exit;
 }
 
 // Dati per la mail
 $to = "info@girlsonthepathofchange.com";
-$mail_subject = "Contact Form: $subject";
-$body = "Nome: $name\nEmail: $email\nData di nascita: $birthdate\nSoggetto: $subject\nMessaggio:\n$message";
+$mail_subject = "Messagge from the website, subject: $subject";
+$body = "Name: $name\nEmail: $email\nDate of birth: $birthdate\nSubject: $subject\nMessagge:\n$message";
 $headers = "From: $name <$email>\r\nReply-To: $email\r\n";
 
 // Invio mail
 if (mail($to, $mail_subject, $body, $headers)) {
-    echo "Messaggio inviato con successo!";
+    echo "Message sent successfully!";
 } else {
-    echo "Errore nell'invio del messaggio. Riprova più tardi.";
+    echo "Error sending message. Try again later.";
 }
 ?>
