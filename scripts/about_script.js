@@ -33,26 +33,61 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //Circle slider
 const sliderContainer = document.querySelector('#team-slider-container');
-const circles = Array.from(document.querySelectorAll('.team-circle'));
+let circles = Array.from(document.querySelectorAll('.team-circle'));
 const prevButton = document.querySelector('.team-prev');
 const nextButton = document.querySelector('.team-next');
 
 let currentIndex = 0;
 let totalCircles = circles.length;
 
-// Funzione per determinare quante "team-circle" sono visibili (1 su mobile, 3 su desktop)
+// Quante slide visibili (1 su mobile, 3 su desktop)
 function getVisibleCircles() {
   return window.innerWidth <= 825 ? 1 : 3;
 }
 
-// Funzione per clonare le "team-circle" per effetto infinito
+// Clona per effetto infinito
 function cloneCircles() {
   circles.forEach(circle => {
     const clone = circle.cloneNode(true);
     sliderContainer.appendChild(clone);
   });
-  // Aggiorna il numero totale dopo la clonazione
-  totalCircles = document.querySelectorAll('.team-circle').length;
+  circles = Array.from(document.querySelectorAll('.team-circle'));
+  totalCircles = circles.length;
+}
+
+// Ordina le slide su mobile (team2 → 0, team3 → 1, il resto a seguire)
+function updateMobileOrder() {
+  const isMobile = window.innerWidth <= 825;
+  const allCircles = Array.from(document.querySelectorAll('.team-circle'));
+  if (isMobile) {
+    let orderCounter = 2;
+    allCircles.forEach(circle => {
+      if (circle.classList.contains('team2')) {
+        circle.style.order = 0;
+      } else if (circle.classList.contains('team3')) {
+        circle.style.order = 1;
+      } else {
+        circle.style.order = orderCounter++;
+      }
+    });
+  } else {
+    allCircles.forEach(circle => {
+      circle.style.order = '';
+    });
+  }
+}
+
+// Imposta la slide iniziale (parte da team2 su mobile)
+function setInitialSlide() {
+  const isMobile = window.innerWidth <= 825;
+  const allCircles = Array.from(document.querySelectorAll('.team-circle'));
+  if (isMobile) {
+    // Trova l'indice di .team2
+    const team2Index = allCircles.findIndex(circle => circle.classList.contains('team2'));
+    if (team2Index !== -1) currentIndex = team2Index;
+  } else {
+    currentIndex = 0;
+  }
 }
 
 // Aggiorna la visualizzazione delle "team-circle"
@@ -70,20 +105,22 @@ function updateSlider() {
       allCircles[i].classList.add('hidden');
     }
   }
+  updateMobileOrder();
 }
 
-// Clona le "team-circle" se necessario quando si scorre
+// Clona se necessario quando si scorre
 function checkAndCloneCircles() {
   if (currentIndex + Math.floor(getVisibleCircles() / 2) >= totalCircles - circles.length) {
     cloneCircles();
   }
 }
 
-// Prima clonazione e aggiornamento slider
+// Inizializzazione
 cloneCircles();
+setInitialSlide();
 updateSlider();
 
-// Eventi per i pulsanti di navigazione
+// Pulsanti navigazione
 prevButton.addEventListener('click', () => {
   currentIndex = (currentIndex === 0) ? totalCircles - 1 : currentIndex - 1;
   checkAndCloneCircles();
@@ -96,8 +133,11 @@ nextButton.addEventListener('click', () => {
   updateSlider();
 });
 
-// Aggiorna la slider quando la finestra cambia dimensione
-window.addEventListener('resize', updateSlider);
+// Su resize aggiorna slide iniziale e slider
+window.addEventListener('resize', () => {
+  setInitialSlide();
+  updateSlider();
+});
 
 //Collaboration slider
 const collabContainer = document.querySelector('#about-slider-container');
