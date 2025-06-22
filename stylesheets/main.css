@@ -1180,6 +1180,11 @@ button.team-next {
   object-fit: cover;
 }
 
+.grid-item7 {
+  grid-column: 2;
+  transform: translateY(-50px);
+}
+
 .story-square:nth-child(3n) {
   transform: translateY(-50px);
 }
