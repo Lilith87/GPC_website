@@ -1255,15 +1255,20 @@ button.team-next {
 /**hero**/
 #news-hero-content {
   background: linear-gradient(to right, rgba(31, 25, 115, .8), rgba(0, 0, 0, .3), rgba(31, 25, 115, .6)),
-    url(../img/stories_hero.jpg);
+    url(../img/news-hero.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-#news-hero-content .hero-caption p {
-  padding: 10px 0 180px 0;
-  line-height: 30px;
+#news-hero-content .hero-caption {
+  padding: 300px 20px;
+  text-align: center;
+  line-height: 80px;
+}
+
+#news-hero-content .hero-caption h1 {
+  text-transform: uppercase;
 }
 
 .news-content {
